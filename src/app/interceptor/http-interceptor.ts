@@ -12,7 +12,7 @@ import { Observable, throwError } from 'rxjs';
 
 @Injectable()
 export class currencyInterceptor implements HttpInterceptor {
-    API_KEY = "f54c54d6f3907be7f3cc3851b75c429f";
+    API_KEY = "ff191452695d3bc40cf21ec7dde89588";
     constructor() {}
    
 intercept( request: HttpRequest<any>, next: HttpHandler ): Observable<HttpEvent<any>> {

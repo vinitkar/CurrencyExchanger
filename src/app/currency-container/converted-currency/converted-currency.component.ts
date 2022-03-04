@@ -25,6 +25,7 @@ export class ConvertedCurrencyComponent implements OnInit {
   onDetailClick() {
     this.currencyService.changeStateSub$.next(false);
   }
+
   ngOnDestroy() {
     this.currencyService.currencySub$.unsubscribe();
   }

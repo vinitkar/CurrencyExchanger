@@ -16,6 +16,7 @@ import { currencyInterceptor } from './interceptor/http-interceptor';
 import { NgChartsModule } from 'ng2-charts';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ExchangeCurrencyPipe } from './pipes/exchange-currency.pipe';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ExchangeCurrencyPipe } from './pipes/exchange-currency.pipe';
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
-    NgChartsModule
+    NgChartsModule,
+    AppRoutingModule
   ],
   providers: [
     {

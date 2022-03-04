@@ -17,6 +17,9 @@ export class CurrencyTitleComponent implements OnInit {
     this.currencyService.changeStateSub$.subscribe((isHome) => {
       if(!isHome)
       this.getCurrenctFullName();
+      else{
+        this.title = SharedProperty.defaultTitle;
+      }
     });
   }
 

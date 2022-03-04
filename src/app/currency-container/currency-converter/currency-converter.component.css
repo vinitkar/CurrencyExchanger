@@ -16,6 +16,12 @@ label{
     height: 50px;
     margin-left: 20%;
 }
+@media (max-width: 500px){
+    .swapIcon{
+        margin-left: 0px;
+    }
+
+}
 .button{
     float: right;
     height: 30px;

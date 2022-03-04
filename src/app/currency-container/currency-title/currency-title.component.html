@@ -1,7 +1,7 @@
 <div class="titleContainer">
     <h2 class="title">{{title}}</h2>
    <div class="back">
-    <button class="btn btn-primary" (click)="onBackCLick()" *ngIf="!(currencyService.changeStateSub$ | async)">Back to Home</button>
+    <a routerLink="/home"><button class="btn btn-primary" (click)="onBackCLick()" *ngIf="!(currencyService.changeStateSub$ | async)">Back to Home</button></a>
    </div>
     
 </div>

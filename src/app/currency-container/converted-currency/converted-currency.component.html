@@ -2,7 +2,7 @@
 <div class="convertedCurrency" *ngIf="convertedUnit != 0">
     <div class="unit1">1 {{currencyService.selectedCurrencyFrom }} = {{convertedUnit | number : '1.2-2'}} {{currencyService.selectedCurrencyTo}}</div>
     <div class="unit2">{{currencyService.selectedAmount | exchangeCurrency: convertedUnit| number : '1.2-2' }} {{currencyService.selectedCurrencyTo}}</div>
-    <button class="btn btn-primary detailBtn"  [disabled]="!currencyService.selectedAmount" (click)="onDetailClick()" *ngIf="currencyService.changeStateSub$ | async"> More Details</button>
+    <a routerLink="/details"><button class="btn btn-primary detailBtn"  [disabled]="!currencyService.selectedAmount" (click)="onDetailClick()" *ngIf="currencyService.changeStateSub$ | async"> More Details</button></a>
 </div>
 
 

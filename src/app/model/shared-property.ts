@@ -7,5 +7,5 @@ export enum SharedProperty {
   backtohome = 'Back To Home',
   latest_API = "http://data.fixer.io/api/latest",
   symbols_API = "http://data.fixer.io/api/symbols",
-  historicAPI = "http://data.fixer.io/api/"
+  historicAPI = "http://data.fixer.io/api/",
 }

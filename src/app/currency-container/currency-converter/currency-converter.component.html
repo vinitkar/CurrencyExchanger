@@ -30,6 +30,6 @@
       </select>
   
     </div>
-    <button class="col-75 btn btn-primary" (click)="onConvertCurrency()"
-      [disabled]="!currencyService.selectedAmount">Converter</button>
+    <a routerLink="/home"><button class="col-75 btn btn-primary" (click)="onConvertCurrency()"
+      [disabled]="!currencyService.selectedAmount">Converter</button></a>
   </form>

@@ -17,6 +17,7 @@ export class CurrencyCardContainerComponent implements OnInit {
     this.currencyService.currencySub$.subscribe((val) => {
       this.displayCards(val);
     });
+    this.displayCards( this.currencyService.currency);
   }
   /***
    * Create and display first 9 cards

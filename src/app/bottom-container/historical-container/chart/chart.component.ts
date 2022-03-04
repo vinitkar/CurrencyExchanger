@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CurrencyConverterService } from 'src/app/services/currency-converter.service';
 
 @Component({
@@ -18,25 +18,34 @@ export class ChartComponent implements OnInit {
     {data: [], label: 'Code1'},
     {data: [], label: 'code2'}
   ];
+  @Input() currencyDetails:Object | undefined;
+  
   constructor(private currencyService:CurrencyConverterService) { 
 
   }
 
   ngOnInit(): void {
+    this.updateChartDetails();
+    this.currencyService.chartDisplaySub$.subscribe((_data) => {
+      this.updateChartDetails();
+    })
+
+  }
+  updateChartDetails(){
     this.currencyService.getHistoricalCurrency().subscribe((data:any) => {
-    let fromDataList:any = [];
-    let toDataList:any = [];
-    
-    for(let i = 0; i< data.length; i++){
-      let rate = data[i].rates;
-      fromDataList.push(rate[this.currencyService.selectedCurrencyFrom]);
-      toDataList.push(rate[this.currencyService.selectedCurrencyTo])
-    }
-    let rates =  data.rates;
-    this.barChartData = [
-         {data: fromDataList , label: this.currencyService.selectedCurrencyFrom},
-         {data: toDataList , label: this.currencyService.selectedCurrencyTo}
-    ]
-   });
+      let fromDataList:any = [];
+      let toDataList:any = [];
+      
+      for(let i = 0; i< data.length; i++){
+        let rate = data[i].rates;
+        fromDataList.push(rate[this.currencyService.selectedCurrencyFrom]);
+        toDataList.push(rate[this.currencyService.selectedCurrencyTo])
+      }
+      let rates =  data.rates;
+      this.barChartData = [
+           {data: fromDataList , label: this.currencyService.selectedCurrencyFrom},
+           {data: toDataList , label: this.currencyService.selectedCurrencyTo}
+      ]
+     });
   }
 }

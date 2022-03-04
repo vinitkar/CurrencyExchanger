@@ -20,8 +20,9 @@ export class CurrencyConverterService {
   public selectedCurrencyFrom: string = SharedProperty.defautCurrencyFrom;
   public selectedCurrencyTo: string = SharedProperty.defautCurrencyTo;
   public selectedAmount: string = '';
-  public currency:object = {};
+  public currency: object = {};
   public currencySub$: Subject<any> = new Subject();
+  public chartDisplaySub$: Subject<any> = new Subject();
   public changeStateSub$: BehaviorSubject<any> = new BehaviorSubject(true);
 
   constructor(private http: HttpClient) {}
@@ -48,15 +49,43 @@ export class CurrencyConverterService {
       'symbols',
       this.selectedCurrencyFrom + ',' + this.selectedCurrencyTo
     );
-    const reqJan = this.http.get(SharedProperty.historicAPI + '2021-01-31', {
-      params,
-    });
-    const reqFeb = this.http.get(SharedProperty.historicAPI + '2021-02-28', {
-      params,
-    });
-    const reqMarch = this.http.get(SharedProperty.historicAPI + '2021-01-31', {
-      params,
-    });
-    return forkJoin([reqJan, reqFeb, reqMarch]);
+    let preYearMonths = this.getPreviousYearDates();
+    let urlColl = [];
+    for (let i = 0; i < preYearMonths.length; i++) {
+      urlColl.push(
+        this.http.get(SharedProperty.historicAPI + preYearMonths[i], {
+          params,
+        })
+      );
+    }
+    return forkJoin([
+      urlColl[0],
+      urlColl[1],
+      urlColl[2],
+      urlColl[3],
+      urlColl[4],
+      urlColl[5],
+      urlColl[6],
+    ]);
+  }
+  getPreviousYearDates() {
+    let monthList = [];
+    let currDate = new Date();
+    for (let i = -1; i < 11; i++) {
+      var preYrDates = new Date(
+        currDate.getFullYear() - 1,
+        currDate.getMonth() + i,
+        0
+      );
+      let test = Number(preYrDates.getMonth()) + 1;
+      monthList.push(
+        preYrDates.getFullYear() +
+          '-' +
+          ('0' + test) +
+          '-' +
+          preYrDates.getDate()
+      );
+    }
+    return monthList;
   }
 }
