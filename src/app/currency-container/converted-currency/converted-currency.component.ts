@@ -8,7 +8,7 @@ import { CurrencyConverterService } from 'src/app/services/currency-converter.se
   styleUrls: ['./converted-currency.component.css'],
 })
 export class ConvertedCurrencyComponent implements OnInit {
-  convertedUnit: number = 1;
+  convertedUnit: number = 0;
 
   constructor(public currencyService: CurrencyConverterService) {}
 

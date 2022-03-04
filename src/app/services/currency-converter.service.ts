@@ -19,7 +19,7 @@ import { SharedProperty } from '../model/shared-property';
 export class CurrencyConverterService {
   public selectedCurrencyFrom: string = SharedProperty.defautCurrencyFrom;
   public selectedCurrencyTo: string = SharedProperty.defautCurrencyTo;
-  public selectedAmount: string = '1';
+  public selectedAmount: string = '';
   public currency:object = {};
   public currencySub$: Subject<any> = new Subject();
   public changeStateSub$: BehaviorSubject<any> = new BehaviorSubject(true);

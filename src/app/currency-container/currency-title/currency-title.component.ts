@@ -25,7 +25,6 @@ export class CurrencyTitleComponent implements OnInit {
    */
    getCurrenctFullName() {
     this.currencyService.getFullName().subscribe((data: ICurrencySymbol) => {
-      debugger;
       const currencyDetails: any = data['symbols'];
       this.title = this.currencyService.selectedCurrencyTo +"-"+currencyDetails[this.currencyService.selectedCurrencyFrom];
     });

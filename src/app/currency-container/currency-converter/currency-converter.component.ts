@@ -53,7 +53,6 @@ export class CurrencyConverterComponent implements OnInit {
    * swap dropdown from to to and vice versa
    */
   onSwapClick() {
-    debugger;
     this.currencyForm.setValue({
       amount: this.currencyService.selectedAmount,
       currencyFrom: this.currencyService.selectedCurrencyTo,
