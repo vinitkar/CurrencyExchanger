@@ -1,0 +1,3 @@
+<div class="cardContainer" *ngFor="let cardData of cardCollection">
+    <app-currency-card [currFrom]="cardData.from" [currTo]="cardData.to" [convertedUnit]="cardData.convertedUnit"></app-currency-card>
+  </div>

@@ -1,0 +1,21 @@
+.headerButton{
+    float: right;
+    top: 10px;
+}
+.headerContainer{
+    border: 2px solid rgb(255, 255, 255);
+    background-color: #2c2929;
+}
+.logo{
+    top: 0px;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+}
+button{
+    height: 30px;
+    color: white;
+    background-color: #2c2929;
+    top:0x;
+
+}

@@ -1,0 +1,20 @@
+.unit1,.unit2{
+    width: 32%;
+    height: 30px;
+    align-items: center;
+    float: left;
+    text-align: center;
+    padding-top: 5px;
+    border: 1px solid rgb(255, 255, 255);
+    margin: 4px;
+}
+
+.convertedCurrency{
+    margin: 0 10px 0 10px;
+    height: 10vh;
+    padding-top: 12px;
+    background-color: #2c2929;
+}
+.detailBtn{
+    width:30%;
+}

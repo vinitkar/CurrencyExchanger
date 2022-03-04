@@ -1,0 +1,17 @@
+.cardContainer{
+    width: 33%;
+    height: 10vh;
+    color: #ffff;
+    display: inline;
+}
+span{
+    float: left;
+    font-size: medium;
+    margin: 0 auto;
+}
+div{
+    top: 0px;
+    font-size: 14;
+    font-weight: bold;
+    color: aquamarine;
+}

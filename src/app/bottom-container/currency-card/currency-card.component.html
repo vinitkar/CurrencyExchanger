@@ -1,0 +1,8 @@
+<div class="cardContainer">
+    <div >1 {{currFrom }} = {{convertedUnit | number : '1.2-2'}} {{currTo}}</div>
+     <span>{{service.selectedAmount}} </span>
+     <span>{{currFrom}} </span>
+     <span> = </span>
+    <span >{{service.selectedAmount | exchangeCurrency: convertedUnit  | number : '1.2-2' }}</span>
+  </div>
+  

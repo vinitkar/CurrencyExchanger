@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TitleBarComponent } from './title-bar.component';
+import { ConvertedCurrencyComponent } from './converted-currency.component';
 
-describe('TitleBarComponent', () => {
-  let component: TitleBarComponent;
-  let fixture: ComponentFixture<TitleBarComponent>;
+describe('ConvertedCurrencyComponent', () => {
+  let component: ConvertedCurrencyComponent;
+  let fixture: ComponentFixture<ConvertedCurrencyComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TitleBarComponent ]
+      declarations: [ ConvertedCurrencyComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TitleBarComponent);
+    fixture = TestBed.createComponent(ConvertedCurrencyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

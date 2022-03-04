@@ -1,0 +1,10 @@
+.back{
+    float: right;
+}
+.title{
+    display: inline;
+}
+.titleContainer{
+    margin: 8px;
+    height: 6vh;
+}

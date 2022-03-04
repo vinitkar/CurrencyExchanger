@@ -1,1 +1,4 @@
-<p>bottom-container works!</p>
+<app-currencycardcontainer *ngIf="isCardContainer;else historic"></app-currencycardcontainer>
+<ng-template #historic>
+    <app-historical-container></app-historical-container>
+</ng-template>
