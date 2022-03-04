@@ -7,7 +7,7 @@ import { HeaderContainerComponent } from './header-container/header-container.co
 import { CurrencyCardContainerComponent } from './bottom-container/currency-card-container/currency-card-container.component';
 import { CurrencyCardComponent } from './bottom-container/currency-card/currency-card.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { currencyInterceptor } from './interceptor/http-interceptor';
+import { currencyInterceptor } from './shared/interceptor/http-interceptor';
 import { CurrencyModule } from './currency-container/currency.module';
 import { SharedModule } from './shared/shared.module';
 

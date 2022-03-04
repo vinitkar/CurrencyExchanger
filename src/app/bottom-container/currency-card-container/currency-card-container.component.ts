@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ICardCurrency } from 'src/app/model/ICardCurrency';
+import { ICardCurrency } from 'src/app/shared/model/ICardCurrency';
 import { CurrencyConverterService } from 'src/app/services/currency-converter.service';
 
 @Component({

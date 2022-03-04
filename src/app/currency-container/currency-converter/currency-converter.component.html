@@ -1,14 +1,14 @@
 <form [formGroup]="currencyForm">
     <div class="col-25">
       <label>Amount:</label>
-      <input class="amount" placeholder="Enter amount" formControlName="amount" maxlength="12" (keypress)="validateNo($event)"/>
+      <input class="amount" [disabled]="!hasHomePage" placeholder="Enter amount" formControlName="amount" maxlength="12" (keypress)="validateNo($event)"/>
     </div>
   
     <div class="col-25">
       <label>
         From:</label>
       <select  formControlName="currencyFrom" 
-        [attr.disabled]="!currencyService.selectedAmount ? 'disabled' : null">
+        [attr.disabled]="!currencyService.selectedAmount || !hasHomePage ? 'disabled' : null">
         <option *ngFor="let item of currencyList" [value]="item">
           {{ item }}
         </option>
@@ -16,14 +16,14 @@
     </div>
   
     <div class="col-25 swapContainer">
-      <input class="swapIcon"  [disabled]="!currencyService.selectedAmount" (click)="onSwapClick()" type="image" src="../../assets/swap.png" />
+      <input class="swapIcon"  [disabled]="!currencyService.selectedAmount || !hasHomePage" (click)="onSwapClick()" type="image" src="../../assets/swap.png" />
     </div>
     
     <div class="col-25">
       <label>
         To:</label>
       <select formControlName="currencyTo" 
-        [attr.disabled]="!currencyService.selectedAmount ? 'disabled' : null">
+        [attr.disabled]="!currencyService.selectedAmount || !hasHomePage? 'disabled' : null">
         <option *ngFor="let item of currencyList" [value]="item">
           {{ item }}
         </option>
@@ -31,5 +31,5 @@
   
     </div>
     <a routerLink="/home"><button class="col-75 btn btn-primary" (click)="onConvertCurrency()"
-      [disabled]="!currencyService.selectedAmount">Converter</button></a>
+      [disabled]="!currencyService.selectedAmount || !hasHomePage">Converter</button></a>
   </form>

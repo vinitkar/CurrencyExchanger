@@ -8,10 +8,10 @@ import {
   throwError,
 } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { IConvertedCurrency } from '../model/IConvertedCurrency';
-import { ICurrency } from '../model/ICurrency';
-import { ICurrencySymbol } from '../model/ICurrencySymbol';
-import { SharedProperty } from '../model/shared-property';
+import { IConvertedCurrency } from '../shared/model/IConvertedCurrency';
+import { ICurrency } from '../shared/model/ICurrency';
+import { ICurrencySymbol } from '../shared/model/ICurrencySymbol';
+import { SharedProperty } from '../shared/model/shared-property';
 
 @Injectable({
   providedIn: 'root',

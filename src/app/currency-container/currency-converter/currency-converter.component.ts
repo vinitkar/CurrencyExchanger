@@ -1,7 +1,7 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { IConvertedCurrency } from 'src/app/model/IConvertedCurrency';
-import { ICurrency } from 'src/app/model/ICurrency';
+import { ICurrency } from 'src/app/shared/model/ICurrency';
 import { CurrencyConverterService } from 'src/app/services/currency-converter.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class CurrencyConverterComponent implements OnInit {
   currencyForm: FormGroup;
   currencyList: string[] = [];
   currency: ICurrency | undefined;
-
+  hasHomePage = true;
   constructor(
     public currencyService: CurrencyConverterService,
     private fb: FormBuilder
@@ -30,13 +30,16 @@ export class CurrencyConverterComponent implements OnInit {
       this.currency = data;
       this.currencyList = Object.keys(this.currency.rates);
     });
-    this.currencyForm.valueChanges.subscribe(val => {
+    this.currencyForm.valueChanges.subscribe((val) => {
       if (val) {
-          this.currencyService.selectedCurrencyTo = val.currencyTo;
-          this.currencyService.selectedCurrencyFrom = val.currencyFrom;
-          this.currencyService.selectedAmount = val.amount;
+        this.currencyService.selectedCurrencyTo = val.currencyTo;
+        this.currencyService.selectedCurrencyFrom = val.currencyFrom;
+        this.currencyService.selectedAmount = val.amount;
       }
-  });
+    });
+    this.currencyService.changeStateSub$.subscribe((hasHomePage) => {
+      this.hasHomePage = hasHomePage;
+    });
   }
 
   /**
@@ -44,6 +47,7 @@ export class CurrencyConverterComponent implements OnInit {
    * and send to component for manually calcullation.
    */
   onConvertCurrency() {
+    this.currencyForm.controls['amount'].patchValue(this.currencyService.selectedAmount);
     let data = this.currency?.rates;
     this.currencyService.currencySub$.next(data);
     this.currencyService.changeStateSub$.next(true);
@@ -57,17 +61,17 @@ export class CurrencyConverterComponent implements OnInit {
       amount: this.currencyService.selectedAmount,
       currencyFrom: this.currencyService.selectedCurrencyTo,
       currencyTo: this.currencyService.selectedCurrencyFrom,
-   });
+    });
   }
 
   /** Amount validator
    * It should be number only
    */
-  validateNo(e:any): boolean {
+  validateNo(e: any): boolean {
     const charCode = e.which ? e.which : e.keyCode;
     if (charCode > 31 && (charCode < 48 || charCode > 57)) {
-      return false
+      return false;
     }
-    return true
-}
+    return true;
+  }
 }

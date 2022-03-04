@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ICurrencySymbol } from 'src/app/model/ICurrencySymbol';
-import { SharedProperty } from 'src/app/model/shared-property';
+import { ICurrencySymbol } from 'src/app/shared/model/ICurrencySymbol';
+import { SharedProperty } from 'src/app/shared/model/shared-property';
 import { CurrencyConverterService } from 'src/app/services/currency-converter.service';
 
 @Component({
