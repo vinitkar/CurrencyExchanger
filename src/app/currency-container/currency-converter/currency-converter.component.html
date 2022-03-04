@@ -1,7 +1,7 @@
 <form [formGroup]="currencyForm">
     <div class="col-25">
       <label>Amount:</label>
-      <input class="amount" formControlName="amount" maxlength="12" (keypress)="validateNo($event)"/>
+      <input class="amount" placeholder="Enter amount" formControlName="amount" maxlength="12" (keypress)="validateNo($event)"/>
     </div>
   
     <div class="col-25">
