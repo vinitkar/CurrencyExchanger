@@ -11,14 +11,16 @@
 label{
     display: block;
 }
+.swapContainer{
+    display: flex;
+}
 .swapIcon{
-    width: 80px;
-    height: 50px;
-    margin-left: 20%;
+    margin: 0 auto;
 }
 @media (max-width: 500px){
     .swapIcon{
-        margin-left: 0px;
+        width: 66%;
+        padding-top: 17px;
     }
 
 }
@@ -46,7 +48,7 @@ option{
     color: white;
 }
 form{
-    height: 20vh;
+    height: 25vh;
     margin: 0 10px 0 10px;
     padding: 10px;
     background-color: #2c2929;

@@ -5,6 +5,7 @@
 .headerContainer{
     border: 2px solid rgb(255, 255, 255);
     background-color: #2c2929;
+    margin: 0 10px 0 10px;
 }
 .logo{
     top: 0px;
@@ -17,5 +18,15 @@ button{
     color: white;
     background-color: #2c2929;
     top:0x;
+
+}
+@media (max-width: 500px){
+    .headerButton{
+        padding-top: 1px;
+        width:23vh;
+    }
+    .headerContainer{
+        margin: 0px;
+    }
 
 }

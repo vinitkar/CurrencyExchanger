@@ -8,3 +8,10 @@
     margin: 8px;
     height: 6vh;
 }
+
+@media (max-width: 500px){
+    .title{
+        font-size: 16px;
+    }
+
+}
